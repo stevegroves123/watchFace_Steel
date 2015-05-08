@@ -1,0 +1,27 @@
+{
+    "appKeys": {},
+    "capabilities": [
+        ""
+    ],
+    "companyName": "stevegroves123@gmail.com",
+    "longName": "watchFace_steel",
+    "projectType": "native",
+    "resources": {
+        "media": [
+            {
+                "file": "images/SG.png",
+                "menuIcon": true,
+                "name": "sg_main_logo",
+                "type": "png"
+            }
+        ]
+    },
+    "sdkVersion": "2",
+    "shortName": "watchFace_steel",
+    "uuid": "7ccda947-c768-4876-9ac2-ef8096048ad9",
+    "versionCode": 1,
+    "versionLabel": "1.0",
+    "watchapp": {
+        "watchface": true
+    }
+}
