@@ -1,3 +1,10 @@
+// ***************** //
+// * Steve Groves  * //
+// * May 2015      * //
+// * Pebble Steel  * //
+// * watch face    * //
+// ***************** //
+
 #include <pebble.h>
 static Window *s_main_window;
 static TextLayer *s_time_layer;
