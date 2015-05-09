@@ -1,7 +1,7 @@
 #include <pebble.h>
 static Window *s_main_window;
 static TextLayer *s_time_layer;
-static TextLayer *s_messagetime_layer;
+static TextLayer *s_messageyear_layer;
 static TextLayer *s_messagedate_layer;
 
 static void update_time() {
@@ -12,6 +12,7 @@ static void update_time() {
   // Create a long-lived buffer for time and date
   static char time[] = "00:00";
   static char date[] = "00/00";
+  static char year[] = "00000";
 
   // Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true) {
@@ -24,9 +25,12 @@ static void update_time() {
   // display the date in day/month format
   strftime(date, sizeof("00/00"), "%d/%m", tick_time);
   
+  strftime(year, sizeof("00000"), " %Y", tick_time);
+  
   // Display time and date on their TextLayer(s)
   text_layer_set_text(s_time_layer, time);
   text_layer_set_text(s_messagedate_layer, date);
+  text_layer_set_text(s_messageyear_layer, year);
 }
 
 static void tick_handler(struct tm *tick_time, TimeUnits units_changed) {
@@ -43,12 +47,12 @@ static void main_window_load(Window *window)
   text_layer_set_font(s_time_layer, fonts_get_system_font(FONT_KEY_BITHAM_42_BOLD));
   text_layer_set_text_alignment(s_time_layer, GTextAlignmentCenter);
 
-// message layer on display  
-  s_messagetime_layer = text_layer_create(GRect (0, 120, 144, 50));
-  text_layer_set_background_color(s_messagetime_layer, GColorBlack);
-  text_layer_set_text_color(s_messagetime_layer, GColorWhite);  
-  text_layer_set_text(s_messagetime_layer, " Steel");
-  text_layer_set_font(s_messagetime_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+// year layer on display  
+  s_messageyear_layer = text_layer_create(GRect (0, 120, 144, 50));
+  text_layer_set_background_color(s_messageyear_layer, GColorBlack);
+  text_layer_set_text_color(s_messageyear_layer, GColorWhite);  
+  // text_layer_set_text(s_messagetime_layer, " Steel");
+  text_layer_set_font(s_messageyear_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
 
 // date layer on display  
   s_messagedate_layer = text_layer_create(GRect (0, 0, 144, 50));
@@ -59,7 +63,7 @@ static void main_window_load(Window *window)
 
 // show the layers on the display - create three child layers on parent (root)  
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_time_layer));
-  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_messagetime_layer));
+  layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_messageyear_layer));
   layer_add_child(window_get_root_layer(window), text_layer_get_layer(s_messagedate_layer));
 }
 
@@ -67,7 +71,7 @@ static void main_window_unload(Window *window)
   {
 // kill all layers when we stop using the watch face  
   text_layer_destroy(s_time_layer);
-  text_layer_destroy(s_messagetime_layer);
+  text_layer_destroy(s_messageyear_layer);
   text_layer_destroy(s_messagedate_layer);
 }
 
@@ -84,6 +88,7 @@ static void init()
   
   // Make sure the time is displayed from the start
   update_time();
+  
   // check every minute for changes
   tick_timer_service_subscribe(MINUTE_UNIT, tick_handler);                           
 }

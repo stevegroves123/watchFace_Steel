@@ -1,7 +1,7 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "stevegroves123@gmail.com",
     "longName": "watchFace_steel",
