@@ -9,6 +9,11 @@
     "resources": {
         "media": [
             {
+                "file": "images/wf_Steel.png",
+                "name": "Screen_shot",
+                "type": "png"
+            },
+            {
                 "file": "images/SG.png",
                 "menuIcon": true,
                 "name": "sg_main_logo",
