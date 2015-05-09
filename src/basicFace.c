@@ -42,7 +42,7 @@ static void main_window_load(Window *window)
   s_messagetime_layer = text_layer_create(GRect (0, 120, 144, 50));
   text_layer_set_background_color(s_messagetime_layer, GColorBlack);
   text_layer_set_text_color(s_messagetime_layer, GColorWhite);  
-  text_layer_set_text(s_messagetime_layer, "time ");
+  text_layer_set_text(s_messagetime_layer, " Steel");
   text_layer_set_font(s_messagetime_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
 
   s_messagepebble_layer = text_layer_create(GRect (0, 0, 144, 50));
