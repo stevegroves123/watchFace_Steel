@@ -56,14 +56,14 @@ static void main_window_load(Window *window)
 
 // year layer on display  
   s_messageyear_layer = text_layer_create(GRect (0, 120, 144, 50));
-  text_layer_set_background_color(s_messageyear_layer, GColorBlack);
+  text_layer_set_background_color(s_messageyear_layer, GColorBlue);
   text_layer_set_text_color(s_messageyear_layer, GColorWhite);  
-  // text_layer_set_text(s_messagetime_layer, " Steel");
   text_layer_set_font(s_messageyear_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28));
+  text_layer_set_text_alignment(s_messageyear_layer, GTextAlignmentRight);
 
 // date layer on display  
   s_messagedate_layer = text_layer_create(GRect (0, 0, 144, 50));
-  text_layer_set_background_color(s_messagedate_layer, GColorBlack);
+  text_layer_set_background_color(s_messagedate_layer, GColorRed);
   text_layer_set_text_color(s_messagedate_layer, GColorWhite);  
   text_layer_set_font(s_messagedate_layer, fonts_get_system_font(FONT_KEY_GOTHIC_28)); 
   text_layer_set_text_alignment(s_messagedate_layer, GTextAlignmentLeft);
