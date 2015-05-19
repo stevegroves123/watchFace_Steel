@@ -16,12 +16,10 @@
             }
         ]
     },
-    "sdkVersion": "3",
+    "sdkVersion": "2",
     "shortName": "wf_steel",
-    "targetPlatforms": [
-        "basalt"
-    ],
     "uuid": "7ccda947-c768-4876-9ac2-ef8096048ad9",
+    "versionCode": 1,
     "versionLabel": "1.42",
     "watchapp": {
         "watchface": true
