@@ -18,8 +18,8 @@ static void update_time() {
 
   // Create a long-lived buffer for time and date
   static char time[] = "00:00";
-  static char date[] = "00/00";
-  static char year[] = "00000";
+  static char date[] = " 00/00";
+  static char year[] = "0000 ";
 
   // Write the current hours and minutes into the buffer
   if(clock_is_24h_style() == true) {
@@ -30,9 +30,9 @@ static void update_time() {
     strftime(time, sizeof("00:00"), "%I:%M", tick_time);
   }
   // display the date in day/month format
-  strftime(date, sizeof("00/00"), "%d/%m", tick_time);
+  strftime(date, sizeof(" 00/00"), " %d/%m", tick_time);
   
-  strftime(year, sizeof("00000"), " %Y", tick_time);
+  strftime(year, sizeof("0000 "), "%Y ", tick_time);
   
   // Display time and date on their TextLayer(s)
   text_layer_set_text(s_time_layer, time);
